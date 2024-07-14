@@ -1,5 +1,7 @@
 # Amazon product scrapper
 
+`npm i amazon-product-scrapper`
+
 Simple to use and take a look at the examples
 `src/examples`
 
