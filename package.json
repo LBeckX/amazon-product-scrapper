@@ -1,0 +1,46 @@
+{
+  "name": "amazon-product-scrapper",
+  "version": "1.0.0",
+  "description": "Load Amazon products as JSON with images and all other information.",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LBeckX/amazon-product-scrapper.git"
+  },
+  "keywords": [
+    "amazon",
+    "product",
+    "scrapper",
+    "finder",
+    "product",
+    "finder",
+    "amazon",
+    "product",
+    "scrapper"
+  ],
+  "author": "Lukas M. BeckX <lb@bluebranch.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LBeckX/amazon-product-scrapper/issues"
+  },
+  "homepage": "https://github.com/LBeckX/amazon-product-scrapper#readme",
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/node": "^20.14.10",
+    "tsup": "^8.1.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.4.5"
+  }
+}
