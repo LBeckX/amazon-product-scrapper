@@ -1,6 +1,6 @@
 {
   "name": "amazon-product-scrapper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Load Amazon products as JSON with images and all other information.",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -8,6 +8,13 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "type": "module",
   "scripts": {
     "build": "tsup",

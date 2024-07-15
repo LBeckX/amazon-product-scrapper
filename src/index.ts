@@ -1,4 +1,4 @@
 import {AmazonProduct} from "./AmazonProduct.js";
+import {IProduct, IReview} from "./types/IProduct.js";
 
-export {AmazonProduct};
-export default AmazonProduct;
+export {AmazonProduct, type IProduct, type IReview};
