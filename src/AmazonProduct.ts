@@ -33,10 +33,13 @@ export class AmazonProduct {
 
         const $ = cheerio.load(this.html)
 
+        const title = clearText($('#productTitle').text())
+
         this.product = {
             image: $('#imgTagWrapperId img').attr('src') as string,
             images: $('#imageBlock_feature_div').html()?.match(/(?<="hiRes":")(https:.*?)(?=")/g) || [],
-            title: clearText($('#productTitle').text()),
+            title,
+            titles: [title],
             link: this.baseUrl?.href as string,
             price: {
                 amount: clearText($('.a-price.priceToPay').first().text()),

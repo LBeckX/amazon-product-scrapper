@@ -7,4 +7,4 @@ amazonSearch.page = 2
 
 const response = await amazonSearch.search('nintendo')
 
-console.log(response)
+console.log(response?.products)

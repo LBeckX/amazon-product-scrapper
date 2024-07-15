@@ -2,6 +2,7 @@ export interface IProduct {
     image: string,
     images: string[],
     title: string,
+    titles: string[],
     link: string,
     price: {
         amount: string,

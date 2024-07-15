@@ -58,6 +58,7 @@ export class AmazonSearch {
                 image: searchResult.find('.s-product-image-container img').attr('src') as string,
                 images: searchResult.find('.s-product-image-container img').attr('srcset')?.match(/http(.*?)(?=\s)/g) || [],
                 title: clearText(searchResult.find('h2 span').text()),
+                titles: searchResult.find('h2 span').map((index, element) => clearText($(element).text())).get(),
                 link: link.href,
                 price: {
                     amount: clearText(searchResult.find('.a-price[data-a-color="base"] span').first().text()),
