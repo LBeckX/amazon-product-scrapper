@@ -39,7 +39,7 @@ console.log(product)
 ```javascript
 const {AmazonSearch} = require("amazon-product-scrapper");
 
-const amazonSearch = new AmazonSearch(new URL('https://www.amazon.de/'))
+const amazonSearch = new AmazonSearch('https://www.amazon.de/')
 
 const response = await amazonSearch.search('nintendo')
 
@@ -51,7 +51,7 @@ console.log(response)
 ```typescript
 import {AmazonSearch} from "amazon-product-scrapper";
 
-const amazonSearch = new AmazonSearch(new URL('https://www.amazon.de/'))
+const amazonSearch = new AmazonSearch('https://www.amazon.de/')
 
 const response = await amazonSearch.search('nintendo')
 

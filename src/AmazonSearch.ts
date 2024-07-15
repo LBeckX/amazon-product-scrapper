@@ -13,11 +13,13 @@ export class AmazonSearch {
 
     public pages: number | null = null
 
-    constructor(protected baseUrl: URL = new URL('https://www.amazon.de')) {
+    protected baseUrl: URL
+
+    constructor(url = 'https://www.amazon.de/') {
+        this.baseUrl = new URL(url)
     }
 
     async search(keywords: string) {
-
         this.baseUrl.pathname = '/s'
         this.baseUrl.search = ''
         this.baseUrl.searchParams.set('k', keywords)

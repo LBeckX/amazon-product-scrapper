@@ -1,6 +1,6 @@
 import {AmazonSearch} from "../AmazonSearch.js";
 
-const amazonSearch = new AmazonSearch(new URL('https://www.amazon.de/'))
+const amazonSearch = new AmazonSearch('https://www.amazon.de/')
 
 // Go to page 2
 amazonSearch.page = 2
