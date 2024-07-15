@@ -10,11 +10,12 @@ export class AmazonProduct {
 
     public product?: IProduct
 
+    protected baseUrl?: URL
 
     async getProduct(url: string) {
-        const uri = new URL(url)
-        uri.search = ''
-        const response = await (new RequestService()).get(uri, {timeout: 10000})
+        this.baseUrl = new URL(url)
+        this.baseUrl.search = ''
+        const response = await (new RequestService()).get(this.baseUrl, {timeout: 10000})
 
         if (response.status !== 200 && response.status !== 201) {
             return null
@@ -33,9 +34,10 @@ export class AmazonProduct {
         const $ = cheerio.load(this.html)
 
         this.product = {
-            image: $('#imgTagWrapperId img').attr('src'),
+            image: $('#imgTagWrapperId img').attr('src') as string,
             images: $('#imageBlock_feature_div').html()?.match(/(?<="hiRes":")(https:.*?)(?=")/g) || [],
             title: clearText($('#productTitle').text()),
+            link: this.baseUrl?.href as string,
             price: {
                 amount: clearText($('.a-price.priceToPay').first().text()),
                 discountPercent: clearText($('.savingsPercentage').first().text()),
@@ -43,9 +45,9 @@ export class AmazonProduct {
                 basisPrice: clearText($('.basisPrice .a-price > span').first().text()),
             },
             rating: {
-                classes: $('#averageCustomerReviews .a-icon-star').attr('class'),
-                description: $('#averageCustomerReviews .a-icon-star > span').first().text(),
-                amount: $('#acrCustomerReviewText').first().text()
+                classes: $('#averageCustomerReviews .a-icon-star').attr('class') as string,
+                description: clearText($('#averageCustomerReviews .a-icon-star > span').first().text()),
+                amount: clearText($('#acrCustomerReviewText').first().text())
             },
             overview: {
                 table: this._getTableData(safeCheerio($('#productOverview_feature_div table')), $),

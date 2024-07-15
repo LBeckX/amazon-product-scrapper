@@ -1,28 +1,29 @@
 export interface IProduct {
-    image?: string,
+    image: string,
     images: string[],
     title: string,
+    link: string,
     price: {
         amount: string,
+        currency: string,
+        basisPrice: string,
         discountPercent?: string,
-        currency?: string,
-        basisPrice?: string,
     },
     rating: {
-        classes?: string,
+        classes: string,
         description: string,
         amount: string
     },
-    overview: {
+    overview?: {
         table?: string[][],
-        bullets: string[],
+        bullets?: string[],
     },
-    details: {
-        features: string[],
-        tables: string[][]
+    details?: {
+        features?: string[],
+        tables?: string[][]
     },
-    reviews: {
-        top: IReview[]
+    reviews?: {
+        top?: IReview[]
     }
 }
 

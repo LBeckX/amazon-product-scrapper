@@ -1,11 +1,12 @@
 # Amazon product scrapper
 
-`npm i amazon-product-scrapper`
+`$ npm i amazon-product-scrapper`
 
-Simple to use and take a look at the examples
-`src/examples`
+Simple to use and take a look at the examples `src/examples`
 
-// type: commonjs
+## Load Products
+
+#### How to use in commonjs
 
 ```javascript
 const {AmazonProduct} = require("amazon-product-scrapper");
@@ -19,7 +20,7 @@ const product = await amazonProduct.getProduct(url)
 console.log(product)
 ```
 
-// type: module
+#### How to use in module
 
 ```typescript
 import {AmazonProduct} from "amazon-product-scrapper";
@@ -31,4 +32,28 @@ const amazonProduct = new AmazonProduct()
 const product = await amazonProduct.getProduct(url)
 
 console.log(product)
+```
+
+## Search for products
+
+```javascript
+const {AmazonSearch} = require("amazon-product-scrapper");
+
+const amazonSearch = new AmazonSearch(new URL('https://www.amazon.de/'))
+
+const response = await amazonSearch.search('nintendo')
+
+console.log(response)
+```
+
+#### How to use in module
+
+```typescript
+import {AmazonSearch} from "amazon-product-scrapper";
+
+const amazonSearch = new AmazonSearch(new URL('https://www.amazon.de/'))
+
+const response = await amazonSearch.search('nintendo')
+
+console.log(response)
 ```
