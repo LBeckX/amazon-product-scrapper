@@ -12,10 +12,10 @@ export class AmazonProduct {
 
     protected baseUrl?: URL
 
-    async getProduct(url: string) {
+    async getProduct(url: string, lang = 'de_DE', i18nPrefs = 'EUR') {
         this.baseUrl = new URL(url)
         this.baseUrl.search = ''
-        const response = await (new RequestService()).get(this.baseUrl, {timeout: 10000})
+        const response = await (new RequestService()).get(this.baseUrl, {timeout: 10000, lang, i18nPrefs})
 
         if (response.status !== 200 && response.status !== 201) {
             return null

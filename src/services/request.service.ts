@@ -1,7 +1,7 @@
 import * as axios from "axios";
 import {AxiosResponse, ResponseType} from "axios";
 
-type RequestOptions = { timeout?: number, clientIp?: string, language?: string, currency?: string }
+type RequestOptions = { timeout?: number, clientIp?: string, lang?: string, i18nPrefs?: string }
 
 export class RequestService {
 
@@ -22,8 +22,8 @@ export class RequestService {
         };
 
         const cookies: { [key: string]: string } = {
-            "lc-acbde": options?.language || "de_DE",
-            "i18n-prefs": options?.currency || "EUR"
+            "lc-acbde": options?.lang || "de_DE",
+            "i18n-prefs": options?.i18nPrefs || "EUR"
         }
 
         headers['Cookie'] = Object.keys(cookies).map(c => (c + '=' + cookies[c])).join(';') + ';';
