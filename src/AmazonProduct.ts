@@ -3,6 +3,7 @@ import cheerio from "cheerio";
 import {safeCheerio} from "./utils/cheerio.util.js";
 import {clearText} from "./utils/text.util.js";
 import {IProduct, IReview} from "./types/IProduct.js";
+import {generateProductUrl} from "./utils/amazon.util.js";
 
 export class AmazonProduct {
 
@@ -35,12 +36,17 @@ export class AmazonProduct {
 
         const title = clearText($('#productTitle').text())
 
+        const asin = $('#ASIN').attr('value') as string
+
+        const uri = new URL(generateProductUrl(this.baseUrl?.href as string, asin))
+
         this.product = {
+            asin: asin,
             image: $('#imgTagWrapperId img').attr('src') as string,
             images: $('#imageBlock_feature_div').html()?.match(/(?<="hiRes":")(https:.*?)(?=")/g) || [],
             title,
             titles: [title],
-            link: this.baseUrl?.href as string,
+            link: uri.href,
             price: {
                 amount: clearText($('.a-price.priceToPay').first().text()),
                 discountPercent: clearText($('.savingsPercentage').first().text()),

@@ -3,6 +3,7 @@ import cheerio from "cheerio";
 import {RequestService} from "./services/request.service.js";
 import {clearText} from "./utils/text.util.js";
 import {IProductSearch} from "./types/IProductSearch.js";
+import {generateProductUrl} from "./utils/amazon.util.js";
 
 export class AmazonSearch {
     public html?: string
@@ -48,18 +49,26 @@ export class AmazonSearch {
 
         this.products = []
 
-        $('[data-component-type="s-search-result"]').each((index, element) => {
+        $('[data-component-type="s-search-result"][data-asin]').each((index, element) => {
             const searchResult = $(element)
 
-            const link = new URL(this.baseUrl.origin + searchResult.find('h2 a').attr('href') as string)
-            link.search = ''
+            const asin = searchResult.attr('data-asin') as string
+
+            const headlineLink = searchResult.find('h2 a').attr('href') as string
+
+            if (!asin || !headlineLink) {
+                return
+            }
+
+            const url = new URL(generateProductUrl(this.baseUrl.origin + headlineLink, asin))
 
             this.products?.push({
+                asin: asin,
                 image: searchResult.find('.s-product-image-container img').attr('src') as string,
                 images: searchResult.find('.s-product-image-container img').attr('srcset')?.match(/http(.*?)(?=\s)/g) || [],
                 title: clearText(searchResult.find('h2 span').text()),
                 titles: searchResult.find('h2 span').map((index, element) => clearText($(element).text())).get(),
-                link: link.href,
+                link: url.href,
                 price: {
                     amount: clearText(searchResult.find('.a-price[data-a-color="base"] span').first().text()),
                     basisPrice: clearText(searchResult.find('.a-price[data-a-color="secondary"] span').first().text()),

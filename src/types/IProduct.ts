@@ -1,4 +1,5 @@
 export interface IProduct {
+    asin: string,
     image: string,
     images: string[],
     title: string,

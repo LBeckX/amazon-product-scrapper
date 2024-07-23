@@ -90,24 +90,22 @@ Example response
 const response = {
     products: [
         {
-            image: 'https://m.media-amazon.com/images/I/71ultOc0rNL._AC_UY218_.jpg',
+            image: 'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY218_.jpg',
             images: [
-                'https://m.media-amazon.com/images/I/71ultOc0rNL._AC_UY218_.jpg',
-                'https://m.media-amazon.com/images/I/71ultOc0rNL._AC_UY327_QL65_.jpg',
-                'https://m.media-amazon.com/images/I/71ultOc0rNL._AC_UY436_QL65_.jpg',
-                'https://m.media-amazon.com/images/I/71ultOc0rNL._AC_UY545_QL65_.jpg',
-                'https://m.media-amazon.com/images/I/71ultOc0rNL._AC_UY654_QL65_.jpg'
+                'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY218_.jpg',
+                'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY327_QL65_.jpg',
+                'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY436_QL65_.jpg',
+                'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY545_QL65_.jpg',
+                'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY654_QL65_.jpg'
             ],
-            title: "G-STORY 10,1'' tragbarer Monitor für Switch, tragbarer 1080P-Gaming-Monitor, IPS-Bildschirm mit USB Typ-C und zufälliger Tasche, Spielemodus, Reisemonitor für Switch (nicht im Lieferumfang enthalten)",
-            titles: [
-                "G-STORY 10,1'' tragbarer Monitor für Switch, tragbarer 1080P-Gaming-Monitor, IPS-Bildschirm mit USB Typ-C und zufälliger Tasche, Spielemodus, Reisemonitor für Switch (nicht im Lieferumfang enthalten)"
-            ],
-            link: 'https://www.amazon.de/sspa/click',
-            price: {amount: '199,99 €', basisPrice: '', currency: '€'},
+            title: 'Nintendo Switch Konsole - Grau',
+            titles: [ 'Nintendo Switch Konsole - Grau' ],
+            link: 'https://www.amazon.de/Nintendo-Switch-Konsole-Grau-2019/dp/B07W13KJZC/ref=sr_1_37',
+            price: { amount: '', basisPrice: '', currency: '' },
             rating: {
-                classes: 'a-icon a-icon-star-small a-star-small-4 aok-align-bottom',
-                amount: '70',
-                description: '3,8 von 5 Sternen'
+                classes: 'a-icon a-icon-star-small a-star-small-5 aok-align-bottom',
+                amount: '15.828',
+                description: '4,8 von 5 Sternen'
             }
         },
         ...
