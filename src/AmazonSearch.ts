@@ -1,5 +1,5 @@
 import {IProduct} from "./types/IProduct.js";
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 import {RequestService} from "./services/request.service.js";
 import {clearText} from "./utils/text.util.js";
 import {IProductSearch} from "./types/IProductSearch.js";
