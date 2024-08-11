@@ -76,8 +76,8 @@ export class AmazonSearch {
                 },
                 rating: {
                     classes: clearText(searchResult.find('[data-cy="reviews-block"] [data-cy="reviews-ratings-slot"]').attr('class') as string),
-                    amount: searchResult.find('[data-csa-c-slot-id="alf-reviews"] a > span').text(),
                     description: clearText(searchResult.find('[data-cy="reviews-block"] [data-cy="reviews-ratings-slot"] span').text()),
+                    amount: searchResult.find('[data-csa-c-slot-id="alf-reviews"] a > span').text(),
                 },
             })
         })

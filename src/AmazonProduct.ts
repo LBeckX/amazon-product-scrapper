@@ -56,7 +56,7 @@ export class AmazonProduct {
             rating: {
                 classes: $('#averageCustomerReviews .a-icon-star').attr('class') as string,
                 description: clearText($('#averageCustomerReviews .a-icon-star > span').first().text()),
-                amount: clearText($('#acrCustomerReviewText').first().text())
+                amount: clearText($('#acrCustomerReviewText').first().text()).split(' ')[0]
             },
             overview: {
                 table: this._getTableData(safeCheerio($('#productOverview_feature_div table')), $),
