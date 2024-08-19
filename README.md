@@ -25,6 +25,7 @@ Example Response
 
 ```typescript
 const product = {
+    asin: 'B0BHDDH5W1',
     image: 'https://m.media-amazon.com/images/I/41fL86WwqeL._SY300_SX300_QL70_ML2_.jpg',
     images: [
         'https://m.media-amazon.com/images/I/71518kysQyL._SL1500_.jpg',
@@ -90,6 +91,7 @@ Example response
 const response = {
     products: [
         {
+            asin: 'B07W13KJZC',
             image: 'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY218_.jpg',
             images: [
                 'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY218_.jpg',
@@ -99,9 +101,9 @@ const response = {
                 'https://m.media-amazon.com/images/I/714mELI+eGL._AC_UY654_QL65_.jpg'
             ],
             title: 'Nintendo Switch Konsole - Grau',
-            titles: [ 'Nintendo Switch Konsole - Grau' ],
+            titles: ['Nintendo Switch Konsole - Grau'],
             link: 'https://www.amazon.de/Nintendo-Switch-Konsole-Grau-2019/dp/B07W13KJZC/ref=sr_1_37',
-            price: { amount: '', basisPrice: '', currency: '' },
+            price: {amount: '', basisPrice: '', currency: ''},
             rating: {
                 classes: 'a-icon a-icon-star-small a-star-small-5 aok-align-bottom',
                 amount: '15.828',
