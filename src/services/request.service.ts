@@ -21,8 +21,6 @@ export class RequestService {
             'Cookie': `session-id=260-${rand(1000000, 9999999)}-${rand(1000000, 9999999)};session-id-time=2082787201l;`,
         }
 
-        console.log(headers)
-
         const cookies: { [key: string]: string } = {
             "lc-acbde": options?.lang || "de_DE",
             "i18n-prefs": options?.i18nPrefs || "EUR"
