@@ -40,6 +40,11 @@ export class AmazonProduct {
 
         const uri = new URL(generateProductUrl(this.baseUrl?.href as string, asin))
 
+        const currency = clearText($('.a-price.priceToPay .a-price-symbol').first().text())
+        const amount = clearText($('.a-price.priceToPay').first().text()).replace(currency, '').replace(',', '.')
+        const basisPrice = clearText($('.basisPrice .a-price > span').first().text()).replace(currency, '').replace(',', '.')
+        const discountPercent = clearText($('.savingsPercentage').first().text())
+
         this.product = {
             asin: asin,
             image: $('#imgTagWrapperId img').attr('src') as string,
@@ -48,10 +53,11 @@ export class AmazonProduct {
             titles: [title],
             link: uri.href,
             price: {
-                amount: clearText($('.a-price.priceToPay').first().text()),
-                discountPercent: clearText($('.savingsPercentage').first().text()),
-                currency: clearText($('.a-price.priceToPay .a-price-symbol').first().text()),
-                basisPrice: clearText($('.basisPrice .a-price > span').first().text()),
+                quantity: amount ? parseFloat(amount) : null,
+                amount: amount ? parseFloat(amount) : null,
+                discountPercent: discountPercent ? parseFloat(discountPercent) : null,
+                currency,
+                basisPrice: basisPrice ? parseFloat(basisPrice) : null,
             },
             rating: {
                 classes: $('#averageCustomerReviews .a-icon-star').attr('class') as string,

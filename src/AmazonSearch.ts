@@ -62,6 +62,15 @@ export class AmazonSearch {
 
             const url = new URL(generateProductUrl(this.baseUrl.origin + headlineLink, asin))
 
+            const currency = clearText(searchResult.find('.a-price[data-a-color="base"] .a-price-symbol').first().text())
+            const amount = clearText(searchResult.find('.a-price[data-a-color="base"] span').first().text()).replace(currency, '').replace(',', '.')
+            const basisPrice = clearText(searchResult.find('.a-price[data-a-color="secondary"] span').first().text()).replace(currency, '').replace(',', '.')
+
+            let discountPercent = null
+            if (amount && basisPrice) {
+                discountPercent = parseFloat(basisPrice) * parseFloat(amount) / 100
+            }
+
             this.products?.push({
                 asin: asin,
                 image: searchResult.find('.s-product-image-container img').attr('src') as string,
@@ -70,9 +79,11 @@ export class AmazonSearch {
                 titles: searchResult.find('h2 span').map((index, element) => clearText($(element).text())).get(),
                 link: url.href,
                 price: {
-                    amount: clearText(searchResult.find('.a-price[data-a-color="base"] span').first().text()),
-                    basisPrice: clearText(searchResult.find('.a-price[data-a-color="secondary"] span').first().text()),
-                    currency: clearText(searchResult.find('.a-price[data-a-color="base"] .a-price-symbol').first().text())
+                    quantity: amount ? parseFloat(amount) : null,
+                    amount: amount ? parseFloat(amount) : null,
+                    discountPercent,
+                    currency,
+                    basisPrice: basisPrice ? parseFloat(basisPrice) : null,
                 },
                 rating: {
                     classes: clearText(searchResult.find('[data-cy="reviews-block"] [data-cy="reviews-ratings-slot"]').attr('class') as string),

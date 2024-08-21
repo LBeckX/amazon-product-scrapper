@@ -6,10 +6,11 @@ export interface IProduct {
     titles: string[],
     link: string,
     price: {
-        amount: string,
+        quantity: number | null, // Same like amount
+        amount: number | null,
         currency: string,
-        basisPrice: string,
-        discountPercent?: string,
+        basisPrice: number | null,
+        discountPercent?: number | null,
     },
     rating: {
         classes: string,
