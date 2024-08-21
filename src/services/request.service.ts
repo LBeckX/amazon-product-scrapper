@@ -18,7 +18,7 @@ export class RequestService {
             'X-Forwarded-For': options?.clientIp || '',
             'pragma': 'no-cache',
             'upgrade-insecure-requests': '1',
-            'Cookie': `session-id=260-${rand(1000000, 9999999)}-${rand(1000000, 9999999)};session-id-time=2082787201l;`,
+            'Cookie': `session-id=${rand(100, 999)}-${rand(1000000, 9999999)}-${rand(1000000, 9999999)};`,
         }
 
         const cookies: { [key: string]: string } = {
@@ -32,7 +32,7 @@ export class RequestService {
             baseURL: url.origin,
             timeout: options?.timeout || undefined,
             headers,
-            responseType: responseType,
+            responseType,
         })
     }
 }
