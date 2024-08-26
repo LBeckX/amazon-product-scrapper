@@ -36,7 +36,7 @@ export class AmazonProduct {
 
         const title = clearText($('#productTitle').text())
 
-        const asin = $('#ASIN').attr('value') as string
+        const asin = $('#ASIN').attr('value') as string || $('#asin').attr('value') as string
 
         const uri = new URL(generateProductUrl(this.baseUrl?.href as string, asin))
 
